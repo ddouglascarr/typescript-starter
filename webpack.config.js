@@ -1,9 +1,14 @@
 const path = require('path');
 
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  entry: './src/index.tsx',
+  mode: isProd ? 'production' : 'development',
+  devtool: isProd ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
   module: {
     rules: [
       {
