@@ -2,6 +2,10 @@ const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer();
+
+
 module.exports = {
   entry: './src/index.tsx',
   mode: isProd ? 'production' : 'development',
@@ -13,7 +17,10 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+        },
         exclude: /node_modules/,
       },
     ],
