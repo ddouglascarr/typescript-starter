@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "live-server": "^1.2.1",
+    "prettier": "^1.18.2",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.3",
     "typescript-plugin-styled-components": "^1.4.3",

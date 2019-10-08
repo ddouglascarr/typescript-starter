@@ -8,7 +8,6 @@ const HelloDiv = styled.div`
 
 export class Hello extends React.Component<{}, {}> {
   render() {
-    return <HelloDiv>Hello Reloadable World</HelloDiv>
+    return <HelloDiv>Hello Reloadable World</HelloDiv>;
   }
-};
-
+}
