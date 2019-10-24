@@ -2,16 +2,16 @@ const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+  .default;
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
-
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/client-app/entry.tsx',
   mode: isProd ? 'production' : 'development',
   devtool: isProd ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: './dist',
+    contentBase: './dist/client',
   },
   module: {
     rules: [
@@ -19,19 +19,20 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         options: {
-          getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+          getCustomTransformers: () => ({
+            before: [styledComponentsTransformer],
+          }),
         },
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
+    modules: ['node_modules', 'src'],
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist', 'client'),
   },
 };
-
-
