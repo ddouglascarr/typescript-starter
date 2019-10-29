@@ -7,7 +7,7 @@ const createStyledComponentsTransformer = require('typescript-plugin-styled-comp
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
-  entry: './src/client-app/entry.tsx',
+  entry: './src/clientEntry.tsx',
   mode: isProd ? 'production' : 'development',
   devtool: isProd ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
   devServer: {

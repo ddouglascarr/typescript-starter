@@ -8,7 +8,7 @@ const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
   target: 'node',
-  entry: './src/server-app/index.tsx',
+  entry: './src/serverApp/index.tsx',
   mode: isProd ? 'production' : 'development',
   devtool: isProd ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
   module: {
